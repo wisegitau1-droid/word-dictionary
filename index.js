@@ -4,15 +4,12 @@ const results = document.getElementById("results");
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-
-    let word = input.value.trim();
-
-    if (word == "") {
+ let word = input.value.trim();
+ if (word == "") {
         results.innerHTML = "<p>Please enter a word.</p>";
         return;
     }
-
-    fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
+   fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
     .then(function(response) {
 
         if (!response.ok) {
@@ -20,17 +17,14 @@ form.addEventListener("submit", function(event) {
         }
 
         return response.json();
-
-    })
+   })
     .then(function(data) {
-
-        let info = data[0];
+     let info = data[0];
 
         let definition = info.meanings[0].definitions[0].definition;
         let part = info.meanings[0].partOfSpeech;
 
         let example = "there is no example available";
-
         if (info.meanings[0].definitions[0].example) {
             example = info.meanings[0].definitions[0].example;
         }
@@ -40,8 +34,7 @@ form.addEventListener("submit", function(event) {
         if (info.meanings[0].synonyms.length > 0) {
             synonyms = info.meanings[0].synonyms.join(", ");
         }
-
-        results.innerHTML = `
+       results.innerHTML = `
             <h2>${info.word}</h2>
 
             <p><b>Part of speech:</b> ${part}</p>
@@ -52,9 +45,7 @@ form.addEventListener("submit", function(event) {
 
             <p><b>Synonyms:</b> ${synonyms}</p>
         `;
-
-        document.body.style.backgroundColor = "#eef8ff";
-
+     document.body.style.backgroundColor = "#eef8ff";
     })
     .catch(function() {
 
