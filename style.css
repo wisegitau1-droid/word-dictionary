@@ -1,0 +1,45 @@
+/* Style the whole page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightgray;
+    text-align: center;
+}
+
+/* Main container */
+.container {
+    width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+/* Page heading */
+h1 {
+    color: navy;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Search button */
+button {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+#results {
+    margin-top: 20px;
+    text-align: left;
+}
